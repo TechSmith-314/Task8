@@ -8,16 +8,18 @@ namespace Task8
         {
             int queueLength;
             int timePassageOnePatient = 10;
-            int countHours;
-            int countMinutes;
+            int numberOfWaitingHours;
+            int numberOfWaitingFullMinutes;
+            int numberOfWaitingMinutes;
+            const int minutesInHour = 60;
 
             Console.WriteLine("Сколько пациентов в очереди перед Вами?");
             queueLength = Int32.Parse(Console.ReadLine());
-            countMinutes = queueLength * timePassageOnePatient;
-            countHours = countMinutes / 60;
-            countMinutes = countMinutes - (countHours * 60);
+            numberOfWaitingFullMinutes = queueLength * timePassageOnePatient;
+            numberOfWaitingHours = numberOfWaitingFullMinutes / minutesInHour;
+            numberOfWaitingMinutes = numberOfWaitingFullMinutes % minutesInHour;
 
-            Console.WriteLine($"Вам осталось ждать {countHours} час(а/ов), {countMinutes} минут");
+            Console.WriteLine($"Вам осталось ждать {numberOfWaitingHours} час(а/ов), {numberOfWaitingMinutes} минут");
         }
     }
 }
